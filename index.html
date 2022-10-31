@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id"> 
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</head> 
+<body>
+  <div id="result"></div>
+  <script>
+    function myFunctionData()
+    {
+        var methode = "GET", /*=="GET" OR "POST" ==*/
+              url   = 'controller', /*==url Data Source  ==*/
+              dataType = "TEXT", /*==RESULT Response == "JSON" OR "TEXT" ==*/
+              data = {id:'1'}; /*==Fill if has Selected item on data source if not Replace With "" ==*/
+              ajaxData(methode,url,dataType,data,function(b){
+                $("#result").html(b);
+              });
+    }
+
+    function myFunctionFormSerialize()
+    {
+        var methode = "GET", /*== "GET" OR "POST" ==*/
+              url   = 'controller', /*== url Data Source  ==*/
+              dataType = "TEXT", /*== RESULT Response == "JSON" OR "TEXT" ==*/
+              formId = "formID"; /*== Fill With Form ID ==*/
+              ajaxSerialize(methode,url,dataType,formId,function(b){
+                $("#result").html(b);
+              });
+    }
+
+    function myFunctionFormData()
+    {
+        var methode = "GET", /*== "GET" OR "POST" ==*/
+              url   = 'controller', /*== url Data Source ==*/
+              dataType = "TEXT", /*== Response REsult => "JSON" OR "TEXT" ==*/
+              dataForm = new FormData(); /*== Create FormData ==*/
+              dataForm.append("id", "data-id"); /*== append Data Id etc to FormData ==*/
+              ajaxFormData(methode,url,dataType,dataForm,function(b){
+                $("#result").html(b);
+              });
+    }  
+  <script>
+
+  <script src="ajax.js"></script>
+</body>
+</html> 
